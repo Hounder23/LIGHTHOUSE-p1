@@ -1,7 +1,10 @@
-# Final-Project-Transforming-and-Analyzing-Data-with-SQL
+# Transforming and Analyzing Data with SQL
 
 ## Project/Goals
-(fill in your description and goals here)
+-Download and import data from the provided CSV files into my local ecommercDB
+-Explore/Study the imported data to gather possible insights, while also keeping an eye for garbage data
+-Transform the DB tables, using SQL to clean usable data
+-Save and upload notes about the process for future reference
 
 ## Process
 ### (your step 1)
