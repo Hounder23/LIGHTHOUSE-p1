@@ -84,3 +84,20 @@ ALTER TABLE SALES_BY_SKU RENAME COLUMN OTAL_ORDERED TO TOTAL_ORDERED;--fixing a 
 
 
 ### **SALES_REPORT TABLE INVESTIGATION**
+---this table seems to track a running ttotal of how much a product was ordered as well as current stock levels, restock lead time, im unsure what sentiment score and magnitude are for as well as a ratio column
+
+```SQL
+SELECT *
+FROM sales_report;--reutrns 454 rows
+
+
+SELECT DISTINCT(PRODUCTSKU),
+	COUNT(PRODUCTSKU)
+FROM sales_report
+GROUP BY DISTINCT(PRODUCTSKU)
+ORDER BY PRODUCTSKU ;--returns 454 rows
+
+
+ALTER TABLE sales_report ADD PRIMARY KEY (PRODUCTSKU);--making PRODUCTSKU pk
+```
+
