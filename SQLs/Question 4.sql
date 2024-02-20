@@ -34,7 +34,7 @@ FROM (
            productsku,
            v2productname,
            COUNT(productsku) AS sku_count,
-           ROW_NUMBER() OVER (PARTITION BY country ORDER BY COUNT(productsku) DESC) AS row_num
+           ROW_NUMBER() OVER (PARTITION BY country ORDER BY COUNT(productsku) DESC) AS row_num 
     FROM all_sessions
     WHERE country != '(not set)' 
       AND productsku != '(not set)'
