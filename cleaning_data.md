@@ -1,7 +1,6 @@
 What issues will you address by cleaning the data?
---While importing the dataset, I've already briefly explored the data to be able to choose accurate datatypes(Though some of my choices might have been inaccurate)
 
---I'm going to remove any duplicate data I find through my queries
+--While importing the dataset, I've already briefly explored the data to be able to choose accurate datatypes(Though some of my choices might have been inaccurate)
 
 --I'm torn on whether or not to delete entries tied to empty/irrelevent data
     
@@ -36,6 +35,27 @@ WHERE CITY = 'not available in demo dataset';
 ```
 --now the previous query return 0 rows
 
+-- next i assumed that full visitor id was the primary key of this table based on the name of the column compared to the others. to scan for duplicates in this column i used the following query
+```SQL
+SELECT DISTINCT(FULLVISITORID), --each unique entry from this column
+	COUNT(FULLVISITORID) -- frequency of easch itmem in the column
+FROM ALL_SESSIONS
+GROUP BY DISTINCT(FULLVISITORID) -- create buckets for each unique entry
+HAVING COUNT(FULLVISITORID) > 1 -- show me the buckets with more than 1 entry
+ORDER BY FULLVISITORID ;
+```
+--this returns 794 different duplicate keys. and using a similar query i found there was even null data
+--this made me decide to double check with the other columns to see if there were any other PK candidates and by far this seems to be the most appropriate.
+--but i was apprehensive because this column also had nulls in it. 
+--i decided not to set any primary keys for this table
+
+### **ANALYTICS TABLE INVESTIGATION**
+--i could not identify a proper PK in this table 
+--i noticed in the assignment file there was a hint that the unitcost column is in this table and not in any others.
+```SQL
+UPDATE ANALYTICS
+SET UNIT_PRICE = UNIT_PRICE / 1000000;
+```
 
 
 ### **PRODUCTS TABLE INVESTIGATION**

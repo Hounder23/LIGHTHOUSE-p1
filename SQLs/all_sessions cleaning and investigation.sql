@@ -11,53 +11,24 @@ WHERE CITY = 'not available in demo dataset' ;
 
 --cleaning these entries to match the already established non value entries
 
-UPDATE ALL_SESSIONS
-SET CITY = '(not set)'
-WHERE CITY = 'not available in demo dataset' ;
+-- UPDATE ALL_SESSIONS
+-- SET CITY = '(not set)'
+-- WHERE CITY = 'not available in demo dataset' ;
+
+--commented out so i dont run it twice
+-- UPDATE ALL_SESSIONS
+-- SET productprice = productprice / 1000000; 
+--reduce the price of the products by 1000000 from the hint
 
 
 --looking at unique entries for different columns looking for garbage data
 --keeping an eye for typo duplicate
 -- Also trying to identify the PK of this table (STILL UNCLEAR)
-SELECT DISTINCT(CITY),
-	COUNT(CITY)
+
+
+SELECT DISTINCT(FULLVISITORID), --each unique entry from this column
+	COUNT(FULLVISITORID) -- frequency of easch itmem in the column
 FROM ALL_SESSIONS
-GROUP BY DISTINCT(CITY)
-ORDER BY CITY ;
-
-
-SELECT DISTINCT(COUNTRY),
-	COUNT(COUNTRY)
-FROM ALL_SESSIONS
-GROUP BY DISTINCT(COUNTRY)
-ORDER BY COUNTRY ;
-
-
-SELECT DISTINCT(CHANNELGROUPING),
-	COUNT(CHANNELGROUPING)
-FROM ALL_SESSIONS
-GROUP BY DISTINCT(CHANNELGROUPING)
-ORDER BY CHANNELGROUPING ;
-
-
-SELECT DISTINCT(FULLVISITORID),
-	COUNT(FULLVISITORID)
-FROM ALL_SESSIONS
-GROUP BY DISTINCT(FULLVISITORID)
-HAVING COUNT(FULLVISITORID) = 1
+GROUP BY DISTINCT(FULLVISITORID) -- create buckets for each unique entry
+--HAVING COUNT(FULLVISITORID) > 1 -- show me the buckets with more than 1 entry
 ORDER BY FULLVISITORID ;
-
-
-SELECT DISTINCT(VISITID),
-	COUNT(VISITID)
-FROM ALL_SESSIONS
-GROUP BY DISTINCT(VISITID)
-HAVING COUNT(VISITID) = 1
-ORDER BY VISITID ;
-
-SELECT DISTINCT(pagetitle),
-	COUNT(pagetitle)
-FROM ALL_SESSIONS
-GROUP BY DISTINCT(pagetitle)
--- HAVING COUNT(sessionqualitydim) > 1
-ORDER BY pagetitle ;

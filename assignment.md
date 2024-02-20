@@ -8,7 +8,7 @@ Create a new PostgreSQL database called `ecommerce`. Set up tables for each .csv
 > We have gone over the ways that you can import a .csv file into the PostgreSQL database but [this resource](https://www.youtube.com/watch?v=6Jf7eTkIaR4) summarizes it, in case you need a refresher.
 
 
-## Part 2: Data Cleaning -- IN PROGRESS
+## Part 2: Data Cleaning -- WIP
 
 As always, once you have received any dataset, your first task is to orient yourself to the data contained within. While exploring the data, you should keep an eye out for any of potential data issues that need to be cleaned. 
 
