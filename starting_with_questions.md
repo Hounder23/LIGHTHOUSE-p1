@@ -123,31 +123,101 @@ COUNTRIES WITH THEIR AVG VOLUME OF PRODUCTS ORDERED FROM VISITORS IN THAT COUNTR
 
 
 SQL Queries:
+```SQL
+SELECT 
+	COUNTRY,
+	V2PRODUCTCATEGORY,
+	COUNT(V2PRODUCTCATEGORY) 	AS CATEGORY_POPULARITY, 	--show popularity of this category 
+	AVG(PRODUCTPRICE) 			AS AVG_PRODUCTPRICE,-- show avg price in this category
+	CURRENCYCODE,									
+	AVG(TIMEONSITE) 			AS AVG_TIMEONSITE 	-- show avg time spent on site for this category
+FROM ALL_SESSIONS
+WHERE COUNTRY != '(not set)'
+	AND V2PRODUCTCATEGORY != '(not set)'
+GROUP BY COUNTRY,
+	V2PRODUCTCATEGORY,
+	CURRENCYCODE
+ORDER BY 	--COUNTRY, 
+			CATEGORY_POPULARITY desc;
 
+SELECT 
+	CITY,
+	V2PRODUCTCATEGORY,
+	COUNT(V2PRODUCTCATEGORY) 	AS CATEGORY_POPULARITY, 	--show popularity of this category 
+	AVG(PRODUCTPRICE) 			AS AVG_PRODUCTPRICE,-- show avg price in this category
+	CURRENCYCODE,									
+	AVG(TIMEONSITE) 			AS AVG_TIMEONSITE 	-- show avg time spent on site for this category
+FROM ALL_SESSIONS
+WHERE CITY != '(not set)'
+	AND V2PRODUCTCATEGORY != '(not set)'
+GROUP BY CITY,
+	V2PRODUCTCATEGORY,
+	CURRENCYCODE
+ORDER BY 	--CITY, 
+			CATEGORY_POPULARITY desc;
+```
 
 
 Answer:
-
-
-
+using the 2 querries above i have created 2 tables which can be used to compare the most popular categories,from which country/city this category is most popular, the avg price of the products in taht category then tender used and the avg time spent on site in that category for that country/city.
+i was suprised to see how popular men apparel in general so high on the list.
 
 
 **Question 4: What is the top-selling product from each city/country? Can we find any pattern worthy of noting in the products sold?**
 
-
 SQL Queries:
+```SQL
+-- sub query creates a list of all products sold in every city/country and orders it by amount sold
+--the outer query pulls the top result from each city and shows you how much of it was sold to that city
+
+SELECT city,
+       productsku,
+       v2productname,
+	   sku_count as number_of_this_item_sold
+FROM (
+    SELECT city,
+           productsku,
+           v2productname,
+           COUNT(productsku) AS sku_count,
+           ROW_NUMBER() OVER (PARTITION BY city ORDER BY COUNT(productsku) DESC) AS row_num
+    FROM all_sessions
+    WHERE city != '(not set)' 
+      AND productsku != '(not set)'
+      AND productsku IS NOT NULL
+    GROUP BY city, productsku, v2productname
+) AS subquery
+WHERE row_num = 1
+ORDER BY city;
 
 
+SELECT country,
+       productsku,
+       v2productname,
+	   sku_count as number_of_this_item_sold
+FROM (
+    SELECT country,
+           productsku,
+           v2productname,
+           COUNT(productsku) AS sku_count,
+           ROW_NUMBER() OVER (PARTITION BY country ORDER BY COUNT(productsku) DESC) AS row_num
+    FROM all_sessions
+    WHERE country != '(not set)' 
+      AND productsku != '(not set)'
+      AND productsku IS NOT NULL
+    GROUP BY country, productsku, v2productname
+) AS subquery
+WHERE row_num = 1
+ORDER BY country;
+```
 
-Answer:
 
-
-
+Answer: the two querries above show a list of the most bought products in each city though i've noticed that it doesnt work well when there are tied results in the nested query to get more meaningful data we might filter on number_of_this_item_sold to get more meaningfull results
 
 
 **Question 5: Can we summarize the impact of revenue generated from each city/country?**
 
 SQL Queries:
+
 
 
 
