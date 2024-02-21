@@ -8,9 +8,9 @@ FROM ALL_SESSIONS
 WHERE CITY = 'not available in demo dataset' ;
 
 --cleaning these entries to match the already established non value entries
- -- UPDATE ALL_SESSIONS
--- SET CITY = '(not set)'
--- WHERE CITY = 'not available in demo dataset' ;
+ UPDATE ALL_SESSIONS
+SET CITY = '(not set)'
+WHERE CITY = 'not available in demo dataset' ;
  --commented out so i dont run it twice
 -- UPDATE ALL_SESSIONS
 -- SET productprice = productprice / 1000000;
@@ -27,7 +27,6 @@ HAVING COUNT(FULLVISITORID) > 1 -- show me the buckets with more than 1 entry
 ORDER BY FULLVISITORID ;
 
 --this small query is to remove all null and duplicate values in the FULLVISITORID column so that i can make it a PK
-
 DELETE
 FROM ALL_SESSIONS
 WHERE FULLVISITORID IN
