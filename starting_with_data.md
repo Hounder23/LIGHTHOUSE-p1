@@ -1,4 +1,4 @@
-Question 1: 
+Question 1: Which city country combo has the highest avg time on a website?
 
 SQL Queries:
 
