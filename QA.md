@@ -44,11 +44,11 @@ SET productprice = productprice / 1000000;
 SET CITY = '(not set)'
 WHERE CITY = 'not available in demo dataset' ;
 ```
-- i then tried to creat some relation constraints between some of the tables using queries like this
+-   i then tried to creat some relation constraints between some of the tables using queries like this
 ```sql
 ALTER TABLE ANALYTICS
 ADD CONSTRAINT fk_fullvisitorid
 FOREIGN KEY (fullvisitorid)
 REFERENCES all_sessions(fullvisitorid);
 ```
-but i ran out of time to debug the whole mess when it was throwing me errors about some of the values not being present in the right tables
+-   but i ran out of time to debug the whole mess when it was throwing me errors about some of the values not being present in the right tables
