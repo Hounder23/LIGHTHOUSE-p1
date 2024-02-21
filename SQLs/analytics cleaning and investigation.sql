@@ -1,11 +1,11 @@
 SELECT *
 FROM ANALYTICS;
 
-SELECT DISTINCT(userid),
-	COUNT(userid)
+SELECT DISTINCT(fullvisitorid),
+	COUNT(fullvisitorid)
 FROM ANALYTICS
-GROUP BY DISTINCT(userid)
-ORDER BY userid ;
+GROUP BY DISTINCT(fullvisitorid)
+ORDER BY fullvisitorid ;
 
 --commented out the below so i dont accidently run it again
 -- UPDATE ANALYTICS
