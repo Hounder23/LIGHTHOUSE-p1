@@ -22,7 +22,8 @@ FROM (
     GROUP BY city, productsku, v2productname
 ) AS subquery
 WHERE row_num = 1
-ORDER BY city;
+ORDER BY number_of_this_item_sold desc
+LIMIT 5;
 
 
 SELECT country,
@@ -42,4 +43,5 @@ FROM (
     GROUP BY country, productsku, v2productname
 ) AS subquery
 WHERE row_num = 1
-ORDER BY country;
+ORDER BY number_of_this_item_sold desc
+LIMIT 5;
