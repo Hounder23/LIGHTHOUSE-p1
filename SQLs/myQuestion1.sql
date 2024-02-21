@@ -1,8 +1,13 @@
 --myQuestion 1: Which city country combo has the highest avg time on a website?
-select city,
-		country,
-		avg(a.timeonsite) as avg_time_on_site
-from analytics a
-join all_sessions als on a.fullvisitorid = als.fullvisitorid
-group by city,country
-order by avg_time_on_site
+
+SELECT CITY,
+	COUNTRY,
+	AVG(A.TIMEONSITE) * 0.0166 AS AVG_TIME_ON_SITE_IN_MINUTES
+FROM ANALYTICS A
+JOIN ALL_SESSIONS ALS ON A.FULLVISITORID = ALS.FULLVISITORID
+WHERE CITY != '(not set)'
+	AND COUNTRY != '(not set)'
+GROUP BY CITY,
+		COUNTRY
+HAVING AVG(A.TIMEONSITE) IS NOT NULL
+ORDER BY AVG_TIME_ON_SITE_IN_MINUTES desc
