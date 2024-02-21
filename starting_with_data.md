@@ -17,6 +17,7 @@ LIMIT 10;
 ```
 
 Answer: 
+i htought it would be interesting to see wich valid city country combo had the highest average amount of time spent on the site
 
 "San Mateo"	"United States"	53.07020000000000000000
 "Sakai"	"Japan"	30.71368888888888888852
@@ -51,6 +52,10 @@ LIMIT 10;
 ```
 
 Answer:
+
+below is the result of the query. however on closer inspection i noticed this question is flawed because it return the highest reviews for every item in every unique combination.
+what i should have asked for was the highest overall rated singular item from every valid city country combo
+
 "Fremont"	"United States"	"Google Stylus Pen w/ LED Light"	0.9
 "Istanbul"	"Turkey"	"Google G Noise-reducing Bluetooth Headphones"	0.9
 "Chennai"	"India"	"Google Hard Cover Journal"	0.9
@@ -81,6 +86,10 @@ ORDER BY TOTAL_ORDERED DESC,
 LIMIT 10;
 ```
 Answer:
+
+just because an item is popular does not mean that the reviews about will trend higher to match.
+
+
 "GGOEGOAQ012899"	"Ballpoint LED Light Pen"	456	0.4
 "GGOEGDHC074099"	"Google 17oz Stainless Steel Sport Bottle"	334	0.8
 "GGOEGOCB017499"	"Leatherette Journal"	319	0.5

@@ -13,8 +13,6 @@
 -   i created a seperate table for each of the CSV files we were given to populate the DB
 -   in each table i had to match the file structure in regards to the names and order of each of the columns
 
-## Results
-(fill in what you discovered this data could tell you and how you used the data to answer those questions)
 
 ## Challenges 
     
