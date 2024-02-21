@@ -7,8 +7,9 @@
 -Save and upload notes onto the README to chronicle my process for future reference
 
 ## Process
-### (your step 1)
-### (your step 2)
+    i started the process by creating a database named ecommerce in pgadmin4 using the setup tool
+    i created a seperate table for each of the CSV files we were given to populate the DB
+    in each table i had to match the file structure in regards to the names and order of each of the columns
 
 ## Results
 (fill in what you discovered this data could tell you and how you used the data to answer those questions)
@@ -16,9 +17,9 @@
 ## Challenges 
 -   While importing the data i found it difficult to choose the correct datatypes while creating the table columns in the database. 
     I found it especially challenging during this part of the process to choose how large these datatypes needed to be to accomodate the data from the table. 
-    I think i chose the lazy way and just ommitted sizes and chose a general but appropriate datatypes for some of the columns i was having issues with and just let postgreSQL figure it out for me during the import.
-    Taking a look at the SQLs folder you can see the queries i used to create the tables and see what i mean by "lazy". But i didnt have a better answer at the time.
+    I think i chose the easy way and just ommitted sizes and chose a general but appropriate datatypes for some of the columns i was having issues with and just let postgreSQL figure it out for me during the import.
+    Taking a look at the SQLs folder you can see the queries i used to create the tables and see what i mean by "easy". But i didnt have a better answer at the time.
 
 
 ## Future Goals
-(what would you do if you had more time?)
+in this project i had
