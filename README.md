@@ -15,6 +15,7 @@
 (fill in what you discovered this data could tell you and how you used the data to answer those questions)
 
 ## Challenges 
+    the beginning of the project was challengeing because i was sick with the flu and was sick in bed for half of the projects alloted 5 days.
 -   While importing the data i found it difficult to choose the correct datatypes while creating the table columns in the database. 
     I found it especially challenging during this part of the process to choose how large these datatypes needed to be to accomodate the data from the table. 
     I think i chose the easy way and just ommitted sizes and chose a general but appropriate datatypes for some of the columns i was having issues with and just let postgreSQL figure it out for me during the import.
