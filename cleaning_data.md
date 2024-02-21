@@ -47,7 +47,20 @@ ORDER BY FULLVISITORID ;
 --this returns 794 different duplicate keys. and using a similar query i found there was even null data
 --this made me decide to double check with the other columns to see if there were any other PK candidates and by far this seems to be the most appropriate.
 --but i was apprehensive because this column also had nulls in it. 
---i decided not to set any primary keys for this table
+-- i decided to delete any duplicate and null FULLVISITORID with the following query as it seemed to be the most appropriate despite the amount of duplicate or missing data compared to the other values in the table
+```SQL
+DELETE
+FROM ALL_SESSIONS
+WHERE FULLVISITORID IN
+		(SELECT FULLVISITORID
+			FROM ALL_SESSIONS
+			GROUP BY FULLVISITORID
+			HAVING COUNT(*) > 1)
+	OR FULLVISITORID IS NULL;
+
+
+ALTER TABLE ALL_SESSIONS ADD PRIMARY KEY (FULLVISITORID);
+```
 
 ### **ANALYTICS TABLE INVESTIGATION**
 --i could not identify a proper PK in this table 
