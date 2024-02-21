@@ -7,6 +7,11 @@ FROM ANALYTICS
 GROUP BY DISTINCT(fullvisitorid)
 ORDER BY fullvisitorid ;
 
+ALTER TABLE ANALYTICS
+ADD CONSTRAINT fk_fullvisitorid
+FOREIGN KEY (fullvisitorid)
+REFERENCES all_sessions(fullvisitorid);
+
 --commented out the below so i dont accidently run it again
 -- UPDATE ANALYTICS
 -- SET UNIT_PRICE = UNIT_PRICE / 1000000;
