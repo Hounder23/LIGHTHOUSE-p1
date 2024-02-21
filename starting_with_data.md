@@ -33,8 +33,34 @@ Answer:
 Question 2: Which CITY COUNTRY COMBO had the highest sentiment score FOR WHICH PRODUCT?
 
 SQL Queries:
+```SQL
+SELECT CITY,
+	COUNTRY,
+	v2productname,
+	max(sentimentscore) AS HIGHEST_PRODUCT_RATING
+FROM ANALYTICS A
+JOIN ALL_SESSIONS ALS ON A.FULLVISITORID = ALS.FULLVISITORID
+JOIN PRODUCTS P ON ALS.PRODUCTSKU = P.SKU
+WHERE 	CITY != '(not set)'
+	AND	COUNTRY != '(not set)'
+GROUP BY CITY,
+		COUNTRY,
+		v2productname
+ORDER BY HIGHEST_PRODUCT_RATING DESC
+LIMIT 10;
+```
 
 Answer:
+"Fremont"	"United States"	"Google Stylus Pen w/ LED Light"	0.9
+"Istanbul"	"Turkey"	"Google G Noise-reducing Bluetooth Headphones"	0.9
+"Chennai"	"India"	"Google Hard Cover Journal"	0.9
+"Edmonton"	"Canada"	"Google Stylus Pen w/ LED Light"	0.9
+"Chicago"	"United States"	"Google Pocket Bluetooth Speaker"	0.9
+"Chicago"	"United States"	"Google G Noise-reducing Bluetooth Headphones"	0.9
+"Austin"	"United States"	"Google G Noise-reducing Bluetooth Headphones"	0.9
+"Ann Arbor"	"United States"	"Metal Texture Roller Pen"	0.9
+"Detroit"	"United States"	"Google 22 oz Water Bottle"	0.9
+"Mountain View"	"United States"	"Google G Noise-reducing Bluetooth Headphones"	0.9
 
 
 
