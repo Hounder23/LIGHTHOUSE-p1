@@ -30,7 +30,7 @@ Answer:
 "Jersey City"	"United States"	20.90950127659574468018
 
 
-Question 2: 
+Question 2: Which CITY COUNTRY COMBO had the highest sentiment score FOR WHICH PRODUCT?
 
 SQL Queries:
 
