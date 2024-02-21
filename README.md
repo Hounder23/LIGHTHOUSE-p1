@@ -15,6 +15,7 @@
 (fill in what you discovered this data could tell you and how you used the data to answer those questions)
 
 ## Challenges 
+    
     The beginning of the project was challengeing because i was sick with the flu and was sick in bed for half of the projects alloted 5 days.
 
 -   While importing the data i found it difficult to choose the correct datatypes while creating the table columns in the database.
