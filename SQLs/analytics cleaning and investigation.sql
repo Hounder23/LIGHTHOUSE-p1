@@ -1,11 +1,11 @@
 SELECT *
 FROM ANALYTICS;
 
-SELECT DISTINCT(unit_price),
-	COUNT(unit_price)
+SELECT DISTINCT(userid),
+	COUNT(userid)
 FROM ANALYTICS
-GROUP BY DISTINCT(unit_price)
-ORDER BY unit_price ;
+GROUP BY DISTINCT(userid)
+ORDER BY userid ;
 
 --commented out the below so i dont accidently run it again
 -- UPDATE ANALYTICS
