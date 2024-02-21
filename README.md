@@ -30,4 +30,4 @@
     the ERD was another sore point for me I didnt leave myself enough time to research how to create those cardinality/relationship lines to show each tables association with the others which i assume includes setting up Foreign keys.
 
 ## Future Goals
-in this project i had
+in this project i had just a little more time to create more meaningful conclusions from my own questions about the data
