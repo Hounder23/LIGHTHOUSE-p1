@@ -64,8 +64,30 @@ Answer:
 
 
 
-Question 3: 
+Question 3: How does the total amount ordered relate to its sentiment score?
 
 SQL Queries:
-
+```sql
+SELECT DISTINCT(SKU),
+	V2PRODUCTNAME,
+	SBS.TOTAL_ORDERED,
+	P.SENTIMENTSCORE as Sentiment_score
+FROM PRODUCTS P
+JOIN SALES_BY_SKU SBS ON P.SKU = SBS.PRODUCTSKU
+JOIN ALL_SESSIONS ALLS USING(PRODUCTSKU)
+WHERE TOTAL_ORDERED > 0
+ORDER BY TOTAL_ORDERED DESC,
+	Sentiment_score DESC
+LIMIT 10;
+```
 Answer:
+"GGOEGOAQ012899"	"Ballpoint LED Light Pen"	456	0.4
+"GGOEGDHC074099"	"Google 17oz Stainless Steel Sport Bottle"	334	0.8
+"GGOEGOCB017499"	"Leatherette Journal"	319	0.5
+"GGOEGOCC077999"	"Google Spiral Journal with Pen"	290	0.1
+"GGOEGFYQ016599"	"Koozie Can Kooler"	253	0.7
+"GGOEGFYQ016599"	"Foam Can and Bottle Cooler"	253	0.7
+"GGOEGHPJ080310"	"Google Blackout Cap"	189	0.3
+"GGOEADHH073999"	"Android 17oz Stainless Steel Sport Bottle"	167	0.3
+"GGOEGAAX0037"	"Google Sunglasses"	146	0.5
+"GGOENEBQ078999"	"Nest® Cam Outdoor Security Camera - USA"	112	0.6
